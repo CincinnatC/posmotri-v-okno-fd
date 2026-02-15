@@ -48,14 +48,14 @@ html {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 196px;
-  height: 103px;
+  height: auto;
 }
 
 .content__video-card-title {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 196px;
-  height: 103px;
+  height: auto;
 } /*Я хотел сделать отдельный класс чтоб не дублировать правила, html уже написан за меня, а там еще и js, не буду трогать на всякий случай*/
 
 .content__accent {
@@ -91,10 +91,7 @@ html {
 .content__list {
   display: flex;
   flex-direction: column;
-
   height: 399px;
-  overflow-x: hidden;
-  overflow-y: auto;
   gap: 30px;
 }
 
@@ -117,6 +114,7 @@ margin-bottom: 16px;
 .content__video-card {
   width: 390px;
   height: 103px;
+  overflow: hidden;
   display: flex;
   object-fit: cover;
   object-position: center;
@@ -129,8 +127,8 @@ margin-bottom: 16px;
 }
 
 .content__list-container {
-  height: 298px;
-  overflow: hidden;
+  height: auto;
+  overflow-y: auto;
 }
 
 
