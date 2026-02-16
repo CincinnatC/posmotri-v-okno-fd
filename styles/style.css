@@ -48,14 +48,19 @@ html {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 196px;
-  height: auto;
+  height: 67px;
 }
 
 .content__video-card-title {
-  overflow: hidden;
   text-overflow: ellipsis;
+  /*Для многострочного текста нашел в интернете только -webkit-line-clamp, но побоялся использовать.
+    Не помню,чтобы мы это проходили в курсе. Подумают еще, что скопировал откуда-то... Так что так =)*/
   width: 196px;
   height: auto;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Oswald";
 } /*Я хотел сделать отдельный класс чтоб не дублировать правила, html уже написан за меня, а там еще и js, не буду трогать на всякий случай*/
 
 .content__accent {
@@ -73,7 +78,6 @@ html {
   height: 534px;
   width: 711px;
   gap: 16px;
-  margin-top: 33px;
 }
 
 .result__video {
@@ -83,9 +87,10 @@ html {
 }
 
 .search-form {
-  display: flex;
-  align-items: start;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: 225px 212px 194px;
+  column-gap: 40px;
+  margin-bottom: 5px;
 }
 
 .content__list {
@@ -108,7 +113,6 @@ html {
 .result__video-container {
 width: 711px;
 height: 386px;
-margin-bottom: 16px;
 }
 
 .content__video-card {
@@ -127,10 +131,81 @@ margin-bottom: 16px;
 }
 
 .content__list-container {
+  padding-right: 5px;
   height: auto;
   overflow-y: auto;
 }
 
+.search-form__textfield {
+  font-family: "Fira Sans Condensed";
+  border-right: none;
+  border-left: none;
+  border-top: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  color: #fff;
+  width: 225px;
+  min-height: 27px;
+  font-size: 18px;
+  background: transparent;
+  appearance: none;
+}
+
+.search-form__textfield::placeholder {
+  color: rgb(255 255 255 / 0.7);
+}
+
+.search-form__textfield:focus-visible {
+  outline: none;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #FFFFFF;
+  outline-offset: 1px;
+} /*Почему при клике мышкой все-равно есть обводка?! Не понимаю*/
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 5px;
+}
+
+.search-form__fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: none;
+}
+
+
+.search-form__checkbox-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-form__pseudo-checkbox::after {
+  content: "";
+  display: block;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.search-form__checkbox:checked:checked + .search-form__pseudo-checkbox::after {
+  opacity: 1;
+}
+.search-form__label-text:hover {
+  border-bottom: 1px solid white;
+} /*Почему-то при наведении остальные подпрыгивают...*/
+
+.search-form__pseudo-checkbox {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  border: 1px solid white;
+  padding: 1px;
+}
 
 h1,
 h2 {
@@ -151,6 +226,16 @@ fieldset {
   margin: 0;
   padding: 0;
 }
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+} 
 
 ul,
 ol {
