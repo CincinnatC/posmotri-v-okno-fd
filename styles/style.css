@@ -40,8 +40,11 @@ html {
 }
 
 .content__card-link {
+  display: block;
   text-decoration: none;
   color: #FFFFFF;
+  cursor: url("../image/image52.svg") 0 0, auto;
+  /*какой-то большой курсор слишком...*/
 }
 
 .content__video-card-description {
@@ -52,6 +55,8 @@ html {
 }
 
 .content__video-card-title {
+  overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
   /*Для многострочного текста нашел в интернете только -webkit-line-clamp, но побоялся использовать.
     Не помню,чтобы мы это проходили в курсе. Подумают еще, что скопировал откуда-то... Так что так =)*/
@@ -111,6 +116,7 @@ html {
 }
 
 .result__video-container {
+position: relative;
 width: 711px;
 height: 386px;
 }
@@ -130,8 +136,37 @@ height: 386px;
   min-width: 194px;
 }
 
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link:hover .content__video-card-description {
+  text-decoration: underline;
+  /*border-bottom: 1.5px solid white;
+  display: inline;*/
+}
+
+.content__card-link:hover .content__video-card-title {
+  text-decoration: underline;
+  /*border-bottom: 1.5px solid white;
+  display: inline; - как в макете не получается. Тут либо инлине-блок, но оно на весь контейнер, либо инлине, но не работает
+    троеточие при переполнении и титл с дискрипшином встают в одну линию*/
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid white;
+  outline-offset: 1px;
+
+}
+
 .content__list-container {
-  padding-right: 5px;
+  position: relative;
+  padding: 2px 5px 100px 2px; /*Только при безумных паддингах низ отдаляется. Не знаю почему. А даже при 100 - ничего*/
+  flex-grow: 1;
   height: auto;
   overflow-y: auto;
 }
@@ -168,6 +203,7 @@ height: 386px;
   align-items: center;
   width: fit-content;
   gap: 5px;
+  cursor: url("../image/image52.svg") 0 0, auto;
 }
 
 .search-form__fieldset {
@@ -195,9 +231,9 @@ height: 386px;
 .search-form__checkbox:checked:checked + .search-form__pseudo-checkbox::after {
   opacity: 1;
 }
-.search-form__label-text:hover {
+.search-form__label:hover .search-form__label-text {
   border-bottom: 1px solid white;
-} /*Почему-то при наведении остальные подпрыгивают...*/
+} /*Почему-то при наведении на один остальные подпрыгивают... Может это в джаве такой скрипт?*/
 
 .search-form__pseudo-checkbox {
   display: inline-block;
@@ -205,6 +241,44 @@ height: 386px;
   height: 19px;
   border: 1px solid white;
   padding: 1px;
+}
+
+.button {
+  font-size: "Fira Sans Condensed";
+  font-size: 18px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  cursor: url("../image/image52.svg") 0 0, auto;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  background-color: #545050;
+  text-decoration: none;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid white;
+  outline-offset: 1px;
+}
+
+.search-form__submit-button {
+  height: 34px;
+  align-self: end;
+  justify-self: stretch;
+}
+
+.more-button {
+  width: 100%;
+  height: 34px;
 }
 
 h1,
