@@ -129,6 +129,10 @@ video {
 }
 
 .content__list {
+  /*position: relative;
+  z-index: 1;
+  а error пытался добавить z-index: 9999; думал проблема в нем. Не особо помогло, только все сломало
+  Ну, я пытался*/
   display: flex;
   flex-direction: column;
   gap: 30px;
