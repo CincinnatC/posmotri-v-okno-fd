@@ -16,6 +16,37 @@ body {
     width: 100%;
 }
 
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+blockquote,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/*input {
+  appearance: none; 
+} Написал так сначала, а потом до конца дочитал ваше ревью :]*/
+
+.search-form__checkbox {
+  appearance: none; 
+}
+
+.search-form__textfield {
+  appearance: none; 
+}
+
 .page {
   display: flex;
   block-size: 100%;
@@ -23,7 +54,6 @@ body {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
-  height: 800px;
   width: 1200px;
   justify-content: center;
   align-items: center;
@@ -36,14 +66,11 @@ body {
   justify-content: center;
   align-items: center;
   gap: 30px;
-  height: 534px;
-  margin-top: 119px;
 }
 
 .title {
-  font-family: "Oswald";
+  font-family: "Oswald", Arial;
   text-transform: uppercase;
-  height: 210px;
   font-size: 75px;
   line-height: 0.92;
 }
@@ -57,10 +84,11 @@ body {
 }
 
 .content__video-card-description {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 196px;
-  height: 67px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden; 
 }
 
 .content__video-card-title {
@@ -72,26 +100,26 @@ body {
   font-size: 30px;
   font-weight: 700;
   text-transform: uppercase;
-  font-family: "Oswald";
+  font-family: "Oswald", Arial;
 }
 .content__accent {
   color: #545050;
 }
-/*
-.uppercase {
-  text-transform: uppercase;
-} Опять таки, создал класс отдельно для заглавных элементов, но этот страшный код не хочется трогать*/
 
 .result {
   display: flex;
   flex-direction: column;
   justify-content: end;
-  height: 534px;
   width: 711px;
   gap: 16px;
 }
 
+video {
+  object-position: center;
+}
+
 .result__video {
+
   width: 711px;
   height: 386px;
   object-fit: cover;
@@ -114,8 +142,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: start;
-  height: 534px;
   gap: 20px;
+  padding-bottom: 82px;
 }
 
 .result__video-container {
@@ -134,9 +162,18 @@ height: 386px;
   justify-content: space-between;
 }
 
+img {
+  object-fit: cover;
+  object-position: center;
+}
+
 .content__video-card-thumbnail {
   min-height: 103px;
   min-width: 194px;
+}
+
+.content__card-link_current {
+  background-color: #545050;
 }
 
 .content__card-link:active {
@@ -145,15 +182,10 @@ height: 386px;
 
 .content__card-link:hover .content__video-card-description {
   text-decoration: underline;
-  /*border-bottom: 1.5px solid white;
-  display: inline;*/
 }
 
 .content__card-link:hover .content__video-card-title {
   text-decoration: underline;
-  /*border-bottom: 1.5px solid white;
-  display: inline; - как в макете не получается. Тут либо инлине-блок, но оно на весь контейнер, либо инлине, но не работает
-    троеточие при переполнении и титл с дискрипшином встают в одну линию*/
 }
 
 .content__card-link:focus {
@@ -167,22 +199,25 @@ height: 386px;
 }
 
 .content__list-container {
+  height: 307px;
   gap: 30px;
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: auto;
+  /*Не понимаю, почему заглушка при поиске теперь не появляется. По какому принцыпу теперь понять,
+  какое изменение в коде это сделало, без понятия...*/
   padding: 2px 5px 5px 2px;
   flex-grow: 1;
-  height: auto;
   overflow-y: auto;
 }
 
 .search-form__textfield {
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", sans-serif;
   border-right: none;
   border-left: none;
-  border-top: 1px solid #FFFFFF;
-  border-bottom: 1px solid #FFFFFF;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
   color: #fff;
   width: 225px;
   min-height: 27px;
@@ -200,11 +235,13 @@ height: 386px;
 }
 
 .search-form__label:has(:focus-visible) {
+  border-top: transparent 1px solid; /*Все равно прыгает*/
   outline: 1px solid #FFFFFF;
   outline-offset: 1px;
-} /*Почему при клике мышкой все-равно есть обводка?! Не понимаю*/
+}
 
 .search-form__label {
+  border-top: 1px solid transparent; /*А тут перестал прыгать*/
   display: flex;
   align-items: center;
   width: fit-content;
@@ -221,6 +258,8 @@ height: 386px;
 
 
 .search-form__checkbox-list {
+  border-top: 1px solid transparent; /*Не работает. Чекбокс прыгает*/
+  /*Вы рекомендуете использовать outline, но для него же нельзя задать чисто bottom как у border. Или вы не про этот элемент?*/
   display: flex;
   justify-content: space-between;
 }
@@ -239,7 +278,7 @@ height: 386px;
 }
 .search-form__label:hover .search-form__label-text {
   border-bottom: 1px solid white;
-} /*Почему-то при наведении на один остальные подпрыгивают... Может это в джаве такой скрипт?*/
+}
 
 .search-form__pseudo-checkbox {
   display: inline-block;
@@ -250,7 +289,7 @@ height: 386px;
 }
 
 .button {
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   border: 1px solid white;
   background: transparent;
@@ -284,27 +323,14 @@ height: 386px;
 
 .more-button {
   width: 100%;
-  padding-bottom: 10px;
+  height: 34px;
+  padding-bottom: 7px;
 }
 
 h1,
 h2 {
   font-weight: 400;
   font-size: 18px;
-}
-
-h1,
-h2,
-h3,
-h4,
-p,
-ul,
-ol,
-li,
-blockquote,
-fieldset {
-  margin: 0;
-  padding: 0;
 }
 
 .visually-hidden {
@@ -316,11 +342,6 @@ fieldset {
   clip-path: inset(50%);
   white-space: nowrap;
 } 
-
-ul,
-ol {
-  list-style: none;
-}
 
 /* Кастомный скроллбар */
 .custom-scrollbar::-webkit-scrollbar {
