@@ -35,10 +35,6 @@ ol {
   list-style: none;
 }
 
-/*input {
-  appearance: none; 
-} Написал так сначала, а потом до конца дочитал ваше ревью*/
-
 .search-form__checkbox {
   appearance: none;
 }
@@ -47,7 +43,7 @@ ol {
   display: flex;
   block-size: 100%;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: 'Fira Sans Condensed', Helvetica, Arial, sans-serif;
   font-size: 18px;
   background-color: #1b1919;
   width: 1200px;
@@ -65,7 +61,7 @@ ol {
 }
 
 .title {
-  font-family: "Oswald", Arial;
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-size: 75px;
   line-height: 0.92;
@@ -76,7 +72,6 @@ ol {
   text-decoration: none;
   color: #FFFFFF;
   cursor: url("../image/image52.svg") 0 0, auto;
-  /*какой-то большой курсор слишком...*/
 }
 
 .content__video-card-description {
@@ -96,7 +91,7 @@ ol {
   font-size: 30px;
   font-weight: 700;
   text-transform: uppercase;
-  font-family: "Oswald", Arial;
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
 }
 .content__accent {
   color: #545050;
@@ -129,10 +124,6 @@ video {
 }
 
 .content__list {
-  /*position: relative;
-  z-index: 1;
-  а error пытался добавить z-index: 9999; думал проблема в нем. Не особо помогло, только все сломало
-  Ну, я пытался*/
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -170,6 +161,7 @@ img {
 .content__video-card-thumbnail {
   min-height: 103px;
   min-width: 194px;
+  object-fit: cover;
 }
 
 .content__card-link_current {
@@ -200,20 +192,20 @@ img {
 
 .content__list-container {
   height: 307px;
+  width: 399px;
   gap: 30px;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: auto;
-  /*Не понимаю, почему заглушка при поиске теперь не появляется. По какому принципу теперь понять,
-  какое изменение в коде это сделало, без понятия...*/
   padding: 2px 5px 5px 2px;
   flex-grow: 1;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .search-form__textfield {
-  font-family: "Fira Sans Condensed", sans-serif;
+  font-family: "Fira Sans Condensed", Helvetica, Arial, sans-serif;
   border-right: none;
   border-left: none;
   border-top: 1px solid currentColor;
@@ -289,7 +281,8 @@ img {
 }
 
 .button {
-  font-family: "Fira Sans Condensed", sans-serif;
+  font-family: "Fira Sans Condensed", Helvetica, Arial, sans-serif;
+  font-weight: 700; /*Я посмотрел, в макете weight 700 а не 500*/
   font-size: 18px;
   border: 1px solid white;
   background: transparent;
