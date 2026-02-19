@@ -80,6 +80,8 @@ ol {
   -webkit-line-clamp: 3;
   line-clamp: 3;
   overflow: hidden;
+  line-height: 19px;
+
 }
 
 .content__video-card-title {
@@ -92,6 +94,7 @@ ol {
   font-weight: 700;
   text-transform: uppercase;
   font-family: "Oswald", Helvetica, Arial, sans-serif;
+  line-height: 36px;
 }
 .content__accent {
   color: #545050;
@@ -114,6 +117,7 @@ video {
   width: 711px;
   height: 386px;
   object-fit: cover;
+  object-position: center;
 }
 
 .search-form {
@@ -126,7 +130,7 @@ video {
 .content__list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 34px;
 }
 
 .content__details {
@@ -134,7 +138,7 @@ video {
   flex-direction: column;
   align-items: start;
   gap: 20px;
-  padding-bottom: 82px;
+  padding-bottom: 76px;
 }
 
 .result__video-container {
@@ -145,7 +149,7 @@ height: 386px;
 
 .content__video-card {
   width: 390px;
-  height: 103px;
+  height: 100px;
   overflow: hidden;
   display: flex;
   object-fit: cover;
@@ -153,15 +157,11 @@ height: 386px;
   justify-content: space-between;
 }
 
-img {
-  object-fit: cover;
-  object-position: center;
-}
-
 .content__video-card-thumbnail {
   min-height: 103px;
   min-width: 194px;
   object-fit: cover;
+  object-position: center;
 }
 
 .content__card-link_current {
@@ -191,14 +191,14 @@ img {
 }
 
 .content__list-container {
-  height: 307px;
-  width: 399px;
-  gap: 30px;
+  height: 300px;
+  width: 400px;
+  gap: 33px;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: auto;
-  padding: 2px 5px 5px 2px;
+  padding: 0px 4px 2px 2px;
   flex-grow: 1;
   overflow-y: auto;
   overflow-x: hidden;
@@ -227,13 +227,13 @@ img {
 }
 
 .search-form__label:has(:focus-visible) {
-  border-top: transparent 1px solid; /*Все равно прыгает*/
+  border-top: transparent 1px solid;
   outline: 1px solid #FFFFFF;
   outline-offset: 1px;
 }
 
 .search-form__label {
-  border-top: 1px solid transparent; /*А тут перестал прыгать*/
+  border-top: 1px solid transparent;
   display: flex;
   align-items: center;
   width: fit-content;
@@ -250,8 +250,7 @@ img {
 
 
 .search-form__checkbox-list {
-  border-top: 1px solid transparent; /*Не работает. Чекбокс прыгает*/
-  /*Вы рекомендуете использовать outline, но для него же нельзя задать чисто bottom как у border. Или вы не про этот элемент?*/
+  border-top: 1px solid transparent;
   display: flex;
   justify-content: space-between;
 }
@@ -317,7 +316,7 @@ img {
 .more-button {
   width: 100%;
   height: 34px;
-  padding-bottom: 7px;
+  padding-bottom: 10px;
 }
 
 h1,
